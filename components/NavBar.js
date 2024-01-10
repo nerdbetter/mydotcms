@@ -32,16 +32,20 @@ const RenderNav = async () => {
   // would like to add active styling for better User Experience
   return (
     <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-        <ul className="flex">
-      {navData.map((c) => {
-        return (<li key={c.title} className="mr-6">
-          <Link href={c.href} className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-            {c.title}
-          </Link>
-        </li>);
-      })}
-    </ul>
-
+      <ul className="flex">
+        {navData.map((c) => {
+          return (
+            <li key={c.title} className="mr-6">
+              <Link
+                href={c.href}
+                className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+              >
+                {c.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 };

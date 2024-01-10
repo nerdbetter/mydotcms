@@ -25,14 +25,14 @@ const Carousel = ({ blogCard }) => {
       setCurrentIndex((prevState) => prevState + 1);
     }
   };
- //fires on  currentIndex change, so the moveNext and movePrev functions
- // math to figure out where to move carousel
+  //fires on  currentIndex change, so the moveNext and movePrev functions
+  // math to figure out where to move carousel
   useEffect(() => {
     if (carousel !== null && carousel.current !== null) {
       carousel.current.scrollLeft = carousel.current.offsetWidth * currentIndex;
     }
   }, [currentIndex]);
-// sets initial scroll width by checking what the element is showing vs what's offset
+  // sets initial scroll width by checking what the element is showing vs what's offset
   useEffect(() => {
     maxScrollWidth.current = carousel.current
       ? carousel.current.scrollWidth - carousel.current.offsetWidth

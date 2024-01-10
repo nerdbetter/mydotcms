@@ -25,13 +25,14 @@ const Carousel = ({ blogCard }) => {
       setCurrentIndex((prevState) => prevState + 1);
     }
   };
-
+ //fires on  currentIndex change, so the moveNext and movePrev functions
+ // math to figure out where to move carousel
   useEffect(() => {
     if (carousel !== null && carousel.current !== null) {
       carousel.current.scrollLeft = carousel.current.offsetWidth * currentIndex;
     }
   }, [currentIndex]);
-
+// sets initial scroll width by checking what the element is showing vs what's offset
   useEffect(() => {
     maxScrollWidth.current = carousel.current
       ? carousel.current.scrollWidth - carousel.current.offsetWidth
@@ -39,7 +40,7 @@ const Carousel = ({ blogCard }) => {
   }, []);
   // should be showing an image in the background but I could not locate in the API
   return (
-    <div className="carousel my-12 mx-auto w-1/2">
+    <div className="my-12 mx-auto w-1/2">
       <h2 className="text-4xl leading-8 font-semibold mb-12 text-slate-700">
         Blog Posts
       </h2>
@@ -66,7 +67,7 @@ const Carousel = ({ blogCard }) => {
             return (
               <div
                 key={r.identifier}
-                className="carousel-item text-white text-center relative w-64 h-64 snap-start"
+                className="text-white text-center relative w-64 h-64 snap-start"
               >
                 <a
                   href={r.urlMap}
